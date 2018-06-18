@@ -7,6 +7,12 @@ from datetime import datetime
 try:
     url = 'http://www.naver.com'
     request = Request(url)
+
+
+
+
+
+    
     resp = urlopen(request)
     resp_body = resp.read().decode("utf-8")
     print(resp_body)
