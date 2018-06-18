@@ -26,6 +26,14 @@ if __name__ == '__main__':
         count = item['count_wordfreq']
         count_m50 = dict(count.most_common(50))
 
-        filename = "%s_%s_%s" % (item['pagename'],item['since'], item['until'])
+        filename = "%s_%s_%s" % (item['pagename'], item['since'], item['until'])
         visualize.wordcloud(filename, count_m50)
-        #visualize.gragh_bar()
+        visualize.graph_bar(
+            title='%s 빈도 분석' % (item['pagename']),
+            xlabel='단어',
+            ylabel='빈도수',
+            values=list(count_m50.values()),
+            ticks=list(count_m50.keys()),
+            showgrid=False,
+            filename=filename,
+            showgraph=False)
